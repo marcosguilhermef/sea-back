@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client'
-import { HashPassword } from '../src/route/Bcrypt'
 const prisma = new PrismaClient()
 async function main() {
 
