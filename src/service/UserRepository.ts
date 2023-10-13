@@ -8,4 +8,8 @@ export class UserRepository extends BaseRepository<User>{
         super(prisma.user)
     }
 
+    destroy() {
+        prisma.$disconnect()
+    }
+
 }

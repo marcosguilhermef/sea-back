@@ -1,4 +1,4 @@
-import { HashPassword, VerifyPassword } from './Bcrypt'
+import { HashPassword, VerifyPassword } from '../route/Bcrypt'
 import {describe, expect, test} from '@jest/globals';
 import { User } from '@prisma/client';
   
