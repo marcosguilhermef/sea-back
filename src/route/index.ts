@@ -7,7 +7,6 @@ import { Rules } from "./Rules";
 import { Auth } from "./Auth";
 
 var cookieParser = require("cookie-parser");
-const bcrypt = require("bcrypt");
 
 export const route = Router();
 
