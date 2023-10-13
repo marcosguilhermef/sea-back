@@ -8,7 +8,7 @@ export async function main() {
     create: {
         user: 'test',
         level: 0,
-        password: '$2b$10$dk9b.M/L9KtKhAjL4FLf7eCX8XFVsPIqNkD93lul0.J/R8VZe3InW' //12345
+        password: '$2b$10$g.0hrYjW9vJBakKSeKNQ2OjnNChVMc0riMzXT.UG.3IDoPBzO4gcS' //12345
     },
   })
   return test;
