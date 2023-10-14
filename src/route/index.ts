@@ -10,7 +10,7 @@ var cookieParser = require("cookie-parser");
 
 export const route = Router();
 
-const repository = new UserRepository();
+const repository = new UserRepository('user');
 
 async function validate(req: Request, res: Response, next: NextFunction, rule: any ){
     let validate = new Validate<User>(rule);

@@ -1,8 +1,8 @@
 import { User } from "@prisma/client";
 import { UserRepository } from "../service/UserRepository";
-import { HashPassword } from "../route/Bcrypt";
+import { BaseRepository } from "../service/BaseRepository";
 
-var repository : UserRepository;
+var repository : BaseRepository<User>;
 
 var creadiential : User;
 
@@ -13,7 +13,7 @@ var newUser  = {
 }
 
 beforeAll( () => {
-    repository = new UserRepository;
+    repository = new UserRepository('user');
 })
 
 describe('Testando CRUD', () => {

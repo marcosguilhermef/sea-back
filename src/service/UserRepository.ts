@@ -1,15 +1,11 @@
 import { BaseRepository } from "./BaseRepository";
-import { Prisma, PrismaClient, User } from "@prisma/client";
+import { User } from "@prisma/client";
 
-const prisma = new PrismaClient();
-
+/**
+ * A criação de novas classes dependerá da necessidade da sobrescrição de métodos.
+ */
 export class UserRepository extends BaseRepository<User>{
-    constructor() {
-        super(prisma.user)
+    constructor(key: string) {
+        super(key)
     }
-
-    destroy() {
-        prisma.$disconnect()
-    }
-
 }

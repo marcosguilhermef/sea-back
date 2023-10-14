@@ -1,4 +1,4 @@
-export interface UserInterface<T>{
+export interface BaseRepositoryInteface<T>{
     find(user: string) : Promise<T>
     create(item: T): Promise<T>
     update(id: number, item: T): Promise<boolean>

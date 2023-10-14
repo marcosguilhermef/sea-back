@@ -1,13 +1,16 @@
-import { UserInterface } from "./UserInterface";
-import { Prisma, PrismaClient, User } from "@prisma/client";
+import { BaseRepositoryInteface } from "./BaseRepositoryInteface";
+import { PrismaClient } from "@prisma/client";
 
 
-export abstract class BaseRepository<T> implements UserInterface<T>{
-    public readonly _prisma: any;
+export abstract class BaseRepository<T> implements BaseRepositoryInteface<T>{
+    private readonly _prisma: any;
+    private readonly prisma : PrismaClient = new PrismaClient();
 
-    constructor(client: Prisma.UserDelegate) {
-        this._prisma = client;
+
+    constructor(key: string) {
+        this._prisma = this.prisma[key as keyof typeof this.prisma]
     }
+
 
     create(item: T): Promise<T> {
         return this._prisma.create({
@@ -54,5 +57,9 @@ export abstract class BaseRepository<T> implements UserInterface<T>{
             skip: skip,
             take: take
         });
+    }
+
+    destroy() {
+        this.prisma.$disconnect()
     }
 } 

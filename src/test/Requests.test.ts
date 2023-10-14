@@ -15,7 +15,7 @@ var newUser : { user: string, password: string, level: number, id?: number }  = 
 var repository: UserRepository;
 
 beforeAll( async () => {
-  repository = new UserRepository();
+  repository = new UserRepository('user');
   let n = newUser as User;
   credencials =  await repository.create(n)
 });
@@ -104,7 +104,8 @@ describe("Testando Request", () => {
 });
 
 afterAll(() => {
-  let repo = new UserRepository();
+  let repo = new UserRepository('user');
+
   repo
     .delete( credencials.id )
     .then( (e) => {
